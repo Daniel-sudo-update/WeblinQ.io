@@ -50,7 +50,7 @@ require("./includes/index_handler.php");
                         </div>
                         <!-- <?php if(in_array("E-mailul sau parola au fost incorecte<br>", $error_array)) echo  "E-mailul sau parola au fost incorecte<br>"; ?> -->
                         
-                        <div class="link forget-pass text-left"style="color: gray"><a href="./forgot.php">Ai uitat parola?</a></div><br>
+                        <div class="link forget-pass text-left"style="color: gray"><a href="./log/forgot.php">Ai uitat parola?</a></div><br>
                         <div class="g-recaptcha" data-sitekey="6LckUBQmAAAAACWDN-FMScRuAbTO07uAhbpe5gc_"></div>
 
                          
@@ -60,7 +60,7 @@ require("./includes/index_handler.php");
 
                     </form>
 
-                    <p class="mt-6 text-sm text-center text-gray-400">Nu aveți încă un cont? <a href="contact.php" class="text-blue-500 focus:outline-none focus:underline hover:underline">Inscrie-te</a>.</p>
+                    <p class="mt-6 text-sm text-center text-gray-400">Nu aveți încă un cont? <a href="./log/contact.php" class="text-blue-500 focus:outline-none focus:underline hover:underline">Inscrie-te</a>.</p>
                 </div>
             </div>
         </div>
