@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "flowbite": "^1.6.5",
+    "tailwind-scrollbar-hide": "^1.1.7"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
+  }
+}

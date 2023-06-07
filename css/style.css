@@ -1,0 +1,16 @@
+
+
+.posts_area {
+  height: calc(100vh - 20px); /* sau orice înălțime dorită */
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.posts_area::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+#white {
+  color: white;
+}
