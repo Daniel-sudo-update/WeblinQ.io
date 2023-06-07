@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->Password = 'tpdyfxgicwupvlyk'; // actualizează cheia de acces aici
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
-    // $mail->SMTPDebug = 3;  //pentru debugging
+    $mail->SMTPDebug = 3;  //pentru debugging
     // Set who the message is to be sent from
     $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
     // Set an alternative reply-to address
