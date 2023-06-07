@@ -4,7 +4,7 @@ session_start();
 
 $timezone = date_default_timezone_set("Europe/Bucharest");
 
-$con = mysqli_connect("eu-cdbr-west-03.cleardb.net", "b483c78de1e73d", "", "heroku_a6ea7f8c2af936f"); //Connection variable
+$con = mysqli_connect("eu-cdbr-west-03.cleardb.net", "b483c78de1e73d", "919e1f82", "heroku_a6ea7f8c2af936f"); //Connection variable
 
 if(mysqli_connect_errno()) 
 {
