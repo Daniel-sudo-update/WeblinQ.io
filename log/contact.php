@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body class="bg-gray-800 " text="#ffffff">
   <div class=" w-full max-w-md m-auto mt-4 h-screen flex justify-center items-center">
-    <form action="log/contact.php" method="post" enctype="multipart/form-data" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">
+    <form action="contact.php" method="post" enctype="multipart/form-data" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">
       <div class="relative z-0 w-full mb-4 group">
         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200" for="firstName">
           Nume
