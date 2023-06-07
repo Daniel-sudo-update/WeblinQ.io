@@ -1,5 +1,5 @@
 <?php  
-include("../includes/header.php");
+include("./includes/header.php");
 if(isset($_POST['post'])){
 	$post = new Post($con, $userLoggedIn);
 	$post->submitPost($_POST['post_text'], 'none');
@@ -14,12 +14,12 @@ if(isset($_POST['post'])){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link rel="stylesheet" href="./background.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 
 
  
  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
- <link href="../src/output.css" rel="stylesheet">
+ <link href="./src/output.css" rel="stylesheet">
 </head>
 <body >
 <div class="p-4 sm:ml-64 ">
@@ -41,7 +41,7 @@ if(isset($_POST['post'])){
 
                         //Original ajax request for loading first posts 
                         $.ajax({
-                           url: "../includes/ajax_load_posts.php",
+                           url: "./includes/ajax_load_posts.php",
                            type: "POST",
                            data: "page=1&userLoggedIn=" + userLoggedIn,
                            cache:false,
@@ -65,7 +65,7 @@ if(isset($_POST['post'])){
                                  
                                  // Load friends' posts using AJAX request
                                  $.ajax({
-                                    url: "../includes/ajax_load_posts.php",
+                                    url: "./includes/ajax_load_posts.php",
                                     type: "POST",
                                     data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
                                     cache: false,
