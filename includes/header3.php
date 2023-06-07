@@ -63,7 +63,7 @@ if (isset($_SESSION['username'])) {
                <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
             </svg>
          </button>
-        <a href="../templates/index.php" class="flex ml-2 md:mr-24">
+        <a href="../templates/home.php" class="flex ml-2 md:mr-24">
           
           <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">WeblinQ</span>
         </a>
@@ -76,7 +76,7 @@ if (isset($_SESSION['username'])) {
 
          <!-- home button -->
          <div class="mr-1">
-                <a href="../templates/index.php" class="inline-flex items-center p-2 ml-3 text-sm font-medium text-gray-900 truncate dark:text-gray-300">
+                <a href="../templates/home.php" class="inline-flex items-center p-2 ml-3 text-sm font-medium text-gray-900 truncate dark:text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
@@ -159,17 +159,17 @@ if (isset($_SESSION['username'])) {
 
                         $delete_query = mysqli_query($con, "DELETE FROM friend_requests WHERE user_to='$userLoggedIn' AND user_from='$user_from'");
                         echo "You are now friends!";
-                        header("Location: index.php");
+                        header("Location: home.php");
                       }
 
                       if(isset($_POST['ignore_request' . $user_from ])) {
                         $delete_query = mysqli_query($con, "DELETE FROM friend_requests WHERE user_to='$userLoggedIn' AND user_from='$user_from'");
                         echo "Request ignored!";
-                        header("Location: index.php");
+                        header("Location: home.php");
                       }
 
                       ?>
-                      <form action="index.php" method="POST">
+                      <form action="home.php" method="POST">
                         <input type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-1 mr-2 ml-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" name="accept_request<?php echo $user_from; ?>" id="accept_button" value="Accept">
                         <input type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-1 mr-2 ml-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" name="ignore_request<?php echo $user_from; ?>" id="ignore_button" value="Ignore">
                       </form>

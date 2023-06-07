@@ -18,7 +18,7 @@ if(isset($_REQUEST['pwdrst']))
     $reset_pwd = mysqli_query($connection,"update users set password='$pwd' where email='$email'");
     if($reset_pwd>0)
     {
-      $msg = 'Parola a fost actualizată cu succes <a href="../log/login.php" class="text-blue-600">Click ici</a> pentru a vă conecta';
+      $msg = 'Parola a fost actualizată cu succes <a href="../index.php" class="text-blue-600">Click ici</a> pentru a vă conecta';
     }
     else
     {

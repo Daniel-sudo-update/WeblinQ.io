@@ -154,7 +154,7 @@ require("../includes/register_handler.php");
                     </button>
 		         </div>
 		<br>
-        <p class="mt-6 text-sm text-center text-gray-400">Aveti deja un cont? <a href="./login.php" class="text-blue-500 focus:outline-none focus:underline hover:underline">Conectare</a>.</p>
+        <p class="mt-6 text-sm text-center text-gray-400">Aveti deja un cont? <a href="../index.php" class="text-blue-500 focus:outline-none focus:underline hover:underline">Conectare</a>.</p>
               
         <?php if(in_array("<span style='color: #14C800;'>Ești gata! Continuați și conectați-vă!</span><br>", $error_array)) echo "<span style='color: #14C800;'>Ești gata! Continuați și conectați-vă!</span><br>"; ?>
 

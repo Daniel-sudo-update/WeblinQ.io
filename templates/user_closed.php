@@ -6,6 +6,6 @@ include("../includes/header.php");
 	<h4>User Closed</h4>
 
 	This account is closed.
-	<a href="index.php" style="color:blue"> Click here to go back.</a>
+	<a href="../index.php" style="color:blue"> Click here to go back.</a>
 
 </div>
