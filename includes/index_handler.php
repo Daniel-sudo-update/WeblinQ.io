@@ -11,7 +11,7 @@ if(isset($_POST['login_button'])) {
 	$check_database_query = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND password='$password'");
 	$check_login_query = mysqli_num_rows($check_database_query);
 
-	$secret = "6LckUBQmAAAAAHa8EQNZ2pN4VWy6znyy19t2kEM2";
+	$secret = "6Lc4GXomAAAAACQce16MtOBkfQUbh7EtxvpySyNB";
 	$response = $_POST['g-recaptcha-response'];
 	$remoteip = $_SERVER['REMOTE_ADDR'];
 	$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip";

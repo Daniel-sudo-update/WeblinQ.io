@@ -51,7 +51,7 @@ require("./includes/index_handler.php");
                         <!-- <?php if(in_array("E-mailul sau parola au fost incorecte<br>", $error_array)) echo  "E-mailul sau parola au fost incorecte<br>"; ?> -->
                         
                         <div class="link forget-pass text-left"style="color: gray"><a href="./log/forgot.php">Ai uitat parola?</a></div><br>
-                        <div class="g-recaptcha" data-sitekey="6LckUBQmAAAAACWDN-FMScRuAbTO07uAhbpe5gc_"></div>
+                        <div class="g-recaptcha" data-sitekey="6Lc4GXomAAAAAM1xAASeLuiXHdIlgJpBvSWBVkeW"></div>
 
                          
                         <div class="mt-6">
