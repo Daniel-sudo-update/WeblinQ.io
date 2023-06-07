@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->Password = 'tpdyfxgicwupvlyk'; // actualizează cheia de acces aici
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
-    $mail->SMTPDebug = 3;  //pentru debugging
+    // $mail->SMTPDebug = 3;  //pentru debugging
     // Set who the message is to be sent from
     $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
     // Set an alternative reply-to address
@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send the message
     if (!$mail->send()) {
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
     } else {
         echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
     }
@@ -69,6 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 	<title>Bun venit!</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 	<link href="../src/output.css" rel="stylesheet"> 
