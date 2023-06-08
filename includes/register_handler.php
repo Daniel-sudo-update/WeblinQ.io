@@ -59,7 +59,7 @@ if(isset($_POST['register_button'])){
 
 	$date = date("Y-m-d"); //Data curenta
 
-	$secret = "6LckUBQmAAAAAHa8EQNZ2pN4VWy6znyy19t2kEM2";
+	$secret = "6Lc4GXomAAAAACQce16MtOBkfQUbh7EtxvpySyNB";
 	$response = $_POST['g-recaptcha-response'];
 	$remoteip = $_SERVER['REMOTE_ADDR'];
 	$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip";
