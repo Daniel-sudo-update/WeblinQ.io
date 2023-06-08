@@ -28,39 +28,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!move_uploaded_file($_FILES["studentCard"]["tmp_name"], $target_file)) {
         die("A avut loc o eroarea la incarcare.");
     }
+// Create a new PHPMailer instance
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->Host = getenv('MAILGUN_SMTP_SERVER'); // SMTP server from Mailgun
+$mail->SMTPAuth = true;
+$mail->Username = getenv('MAILGUN_SMTP_LOGIN'); // SMTP Login from Mailgun
+$mail->Password = getenv('MAILGUN_SMTP_PASSWORD'); // SMTP password from Mailgun
+$mail->SMTPSecure = 'tls';
+$mail->Port = getenv('MAILGUN_SMTP_PORT'); // SMTP port from Mailgun
+$mail->SMTPDebug = 3;  //for debugging
 
-    // Create a new PHPMailer instance
-    $mail = new PHPMailer;
-    $mail->isSMTP();
-    $mail->Host = 'smtp.mailgun.org';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'sandbox334b587771084448b5262bfe125f2fa1.mailgun.org';
-    $mail->Password = '4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca'; // actualizează cheia de acces aici
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
-     $mail->SMTPDebug = 3;  //pentru debugging
-    // Set who the message is to be sent from
-    $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
-    // Set an alternative reply-to address
-    $mail->addReplyTo('confirm.informatii@gmail.com', 'Registration Form');
-    // Set who the message is to be sent to
-    $mail->addAddress('confirm.informatii@gmail.com', 'Contact Info');
+// Set who the message is to be sent from
+$mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
+// Set an alternative reply-to address
+$mail->addReplyTo('confirm.informatii@gmail.com', 'Registration Form');
+// Set who the message is to be sent to
+$mail->addAddress('confirm.informatii@gmail.com', 'Contact Info');
 
-    // Set the subject line
-    $mail->Subject = 'New Registration';
+// Set the subject line
+$mail->Subject = 'New Registration';
 
-    // Set the body
-    $mail->Body = "First Name: $firstName\nEmail: $email";
+// Set the body
+$mail->Body = "First Name: $firstName\nEmail: $email";
 
-    // Attach the uploaded file
-    $mail->addAttachment($target_file);
+// Attach the uploaded file
+$mail->addAttachment($target_file);
 
-    // Send the message
-    if (!$mail->send()) {
-        echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
-    } else {
-        echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
-    }
+// Send the message
+if (!$mail->send()) {
+    echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
+} else {
+    echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
+}
+
     // exit; // prevent form from displaying again
 }
 ?>
