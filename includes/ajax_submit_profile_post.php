@@ -25,7 +25,7 @@ if(isset($_POST['post_body'])) {
         }
     }
 
-    $apiKey = getenv('AZURE_API_KEY'); // cheia API a resursei Content Moderator
+    $apiKey = "68ccd80a5f4f4c8397e309c5879a7359"; // cheia API a resursei Content Moderator
     $endpoint = "https://weblinqmoderator.cognitiveservices.azure.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=True"; // punctul de acces al resursei Content Moderator
 
     $ch = curl_init($endpoint);
