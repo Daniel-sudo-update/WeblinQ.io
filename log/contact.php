@@ -41,14 +41,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     // Send the message
-    $result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', $messageParams);
-
-    if ($result) {
-        echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
-    } else {
-        echo 'Eroare la Mailer: ' . $result->getMessage();
-    }
-
+    try {
+      $result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', $messageParams);
+      
+      if ($result) {
+          echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
+      } 
+  } catch (\Exception $e) {
+      echo 'Eroare la Mailer: ' . $e->getMessage();
+  }
     exit; // prevent form from displaying again
 }
 ?>
