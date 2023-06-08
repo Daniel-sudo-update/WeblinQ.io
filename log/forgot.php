@@ -59,6 +59,8 @@ else
 <div class=" w-full max-w-md m-auto mt-4 h-screen flex justify-center items-center">  
     <div>
     <h3 align="center" class="text-gray-300">Ai uitat parola?</h3><br/>
+    <h3 align="center" class="text-gray-300">Ai primit pe mail o cerere de acceptare de emailuri din partea mailgun/weblinq</h3><br/>
+    <h3 align="center" class="text-gray-300">Dupa acceptarea cererii de primire emailuri, vei putea shimba parola</h3><br/>
     
      <form id="validate_form" method="post" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">  
        <div class="relative z-0 w-full mb-4 group">
