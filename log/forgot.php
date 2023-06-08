@@ -24,22 +24,20 @@ if(isset($_REQUEST['pwdrst']))
      <p><b>Hello!</b></p>
      <p>Ai primit acest email, deoarece s-a creat o cerere de resetare a parolei.</p>
      <br>
-     <p><button class="btn btn-primary"><a href="http://localhost/WeblinQ/log/passwordreset.php?secret='.base64_encode($email).'">Resetare parola</a></button></p>
+     <p><button class="btn btn-primary"><a href="https://weblinq/log/passwordreset.php?secret='.base64_encode($email).'">Resetare parola</a></button></p>
      <br>
      <p>Daca nu ai făcut o cerere de resetare a parolei, nu fă nimic.</p>
     </div>';
 
-// include_once("SMTP/class.phpmailer.php");
-// include_once("SMTP/class.smtp.php");
 $email = $email; 
 $mail = new PHPMailer;
 $mail->IsSMTP();
 $mail->SMTPAuth = true;                 
 $mail->SMTPSecure = "tls";      
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'smtp.mailgun.org';
 $mail->Port = 587; 
-$mail->Username = "confirm.informatii@gmail.com";   //Enter your username/emailid
-$mail->Password = "tpdyfxgicwupvlyk";   //Enter your password
+$mail->Username = "postmaster@sandbox334b587771084448b5262bfe125f2fa1.mailgun.org";   //Enter your Mailgun username
+$mail->Password = "4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca";   //Enter your Mailgun password
 $mail->FromName = "WeblinQ";
 $mail->AddAddress($email);
 $mail->Subject = "Resetare_parolă";
@@ -55,8 +53,8 @@ else
   $msg = "Nu putem gasi un utilizator pentru adresa aceasta";
 }
 }
-
 ?>
+
 <body class="bg-gray-800 " text="#ffffff">
 <div class=" w-full max-w-md m-auto mt-4 h-screen flex justify-center items-center">  
     <div>
