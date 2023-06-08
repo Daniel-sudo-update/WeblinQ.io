@@ -57,12 +57,12 @@ $mail->addAttachment($target_file);
 
 // Send the message
 if (!$mail->send()) {
-    echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
+    // echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
 } else {
     echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
 }
 
-     exit; // prevent form from displaying again
+     //exit; // prevent form from displaying again
 }
 ?>
 
