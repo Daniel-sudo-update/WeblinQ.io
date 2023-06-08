@@ -41,15 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     // Send the message
-    try {
-      $result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', $messageParams);
-      
-      if ($result) {
-          echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
-      } 
-  } catch (\Exception $e) {
-      echo 'Eroare la Mailer: ' . $e->getMessage();
-  }
+    $result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', $messageParams);
+
+    if ($result) {
+        echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
+    } else {
+        echo 'Eroare la Mailer: ' . $result->getMessage();
+    }
+
     exit; // prevent form from displaying again
 }
 ?>
@@ -64,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body class="bg-gray-800 " text="#ffffff">
   <div class=" w-full max-w-md m-auto mt-4 h-screen flex justify-center items-center">
-    <form action="contact.php" method="post" enctype="multipart/form-data" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">
+    <form action="index.php" method="post" enctype="multipart/form-data" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">
       <div class="relative z-0 w-full mb-4 group">
         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200" for="firstName">
           Nume
