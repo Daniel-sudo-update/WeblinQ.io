@@ -3,12 +3,14 @@ require("../config/config.php");
 
 ?>
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 use Mailgun\Mailgun;
 
 require '../vendor/autoload.php';
 
 // Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST["firstName"];
     $email = $_POST["email"];
 
@@ -16,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if file is an image
     $check = getimagesize($_FILES["studentCard"]["tmp_name"]);
-    if ($check === false) {
+    if($check === false) {
         die("Fișierul încărcat nu este o imagine!");
     }
 
@@ -28,29 +30,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("A avut loc o eroarea la incarcare.");
     }
 
-    // Initialize Mailgun API
-    $mg = Mailgun::create('4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca');
-
     // Create a new PHPMailer instance
-    $messageParams = array(
-        'from' => 'Registration Form <confirm.informatii@gmail.com>',
-        'to' => 'Contact Info <confirm.informatii@gmail.com>',
-        'subject' => 'New Registration',
-        'text' => "First Name: $firstName\nEmail: $email",
-        'attachment' => [new \CurlFile($target_file)],
-    );
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->Host = 'smtp.mailgun.org';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'postmaster@sandbox334b587771084448b5262bfe125f2fa1.mailgun.org';
+    $mail->Password = '4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca'; // actualizează cheia de acces aici
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+    // $mail->SMTPDebug = 3;  //pentru debugging
+    // Set who the message is to be sent from
+    $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
+    // Set an alternative reply-to address
+    $mail->addReplyTo('confirm.informatii@gmail.com', 'Registration Form');
+    // Set who the message is to be sent to
+    $mail->addAddress('confirm.informatii@gmail.com', 'Contact Info');
+
+    // Set the subject line
+    $mail->Subject = 'New Registration';
+
+    // Set the body
+    $mail->Body = "First Name: $firstName\nEmail: $email";
+
+    // Attach the uploaded file
+    $mail->addAttachment($target_file);
 
     // Send the message
-    $result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', $messageParams);
-
-    if ($result) {
-        echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
+    if (!$mail->send()) {
+        echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
     } else {
-        echo 'Eroare la Mailer: ' . $result->getMessage();
+        echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
     }
 
-    exit; // prevent form from displaying again
+    
+    // exit; // prevent form from displaying again
 }
+
 ?>
 <html>
 <head>
@@ -63,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body class="bg-gray-800 " text="#ffffff">
   <div class=" w-full max-w-md m-auto mt-4 h-screen flex justify-center items-center">
-    <form action="../index.php" method="post" enctype="multipart/form-data" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">
+    <form action="contact.php" method="post" enctype="multipart/form-data" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">
       <div class="relative z-0 w-full mb-4 group">
         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200" for="firstName">
           Nume
