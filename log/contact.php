@@ -59,7 +59,7 @@ $mail->addAttachment($target_file);
 if (!$mail->send()) {
      echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
 } else {
-    echo '<b class="h-screen flex justify-center items-center">Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
+    echo '<b class="h-screen flex justify-center items-center">Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email, este posibil sa îl gasiti in spam!</b>';
 }
 
      //exit; // prevent form from displaying again
