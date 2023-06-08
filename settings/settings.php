@@ -57,7 +57,7 @@ include("../includes/settings_handler.php");
                     <input type="file" name="profile_pic">
                 </div>
                 <div class="text-gray-700 dark:text-gray-200">
-                    <button type="submit" name="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Upload</button>
+                    <button type="submit" name="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează poza</button>
                 </div>
             </form>
             <!-- final actualizare poza de profil -->
@@ -97,7 +97,7 @@ include("../includes/settings_handler.php");
             </div>
                 <p><?php echo $job_message; ?></p>
                 <div class="flex justify-end mt-6">
-                    <button type="submit" name="update_detailss" id="save_detailss" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+                    <button type="submit" name="update_detailss" id="save_detailss" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
                 </div>
         </form>
 
@@ -122,7 +122,7 @@ include("../includes/settings_handler.php");
           </div>
               <?php echo $message; ?>
             <div class="flex justify-end mt-6">
-                <button type="submit" name="update_details" id="save_detail" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                <button type="submit" name="update_details" id="save_detail" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
             </div>
         </form>
 <!-- schimbare parola -->
@@ -146,16 +146,16 @@ include("../includes/settings_handler.php");
             <?php echo $password_message; ?>
 
             <div class="flex justify-end mt-6">
-                <button type="submit" name="update_password" id="save_details" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                <button type="submit" name="update_password" id="save_details" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
             </div>
         </form>
         <!-- inchidere cont -->
         <form action="settings.php" method="POST">
-            <label class="text-gray-700 dark:text-gray-200">Close account</label>
+            <label class="text-gray-700 dark:text-gray-200">Inchide contul</label>
                   
             <div class="flex justify-end mt-6">
-              <button type="submit" name="close_account" id="close_account" value="close account" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-               Close account
+              <button type="submit" name="close_account" id="close_account" value="close account" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+               Inchide contul
             </div>
         </form>
     </section>
@@ -170,7 +170,7 @@ include("../includes/settings_handler.php");
                 </div>
                 <p><?php echo $about_message; ?></p>
                 <div class="flex justify-end mt-6">
-                    <button type="submit" name="update_about" id="save_about" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                    <button type="submit" name="update_about" id="save_about" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
                 </div>
             </form>
 
@@ -183,7 +183,7 @@ include("../includes/settings_handler.php");
                 </div>
                 <p><?php echo $grupa_message; ?></p>
                 <div class="flex justify-end mt-6">
-                    <button type="submit" name="update_grupa" id="save_grupa" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                    <button type="submit" name="update_grupa" id="save_grupa" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
                 </div>
             </form>
 
@@ -196,7 +196,7 @@ include("../includes/settings_handler.php");
                 </div>
                 <p><?php echo $generatia_message; ?></p>
                 <div class="flex justify-end mt-6">
-                    <button type="submit" name="update_generatia" id="save_generatia" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                    <button type="submit" name="update_generatia" id="save_generatia" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
                 </div>
             </form>
 
@@ -229,7 +229,7 @@ include("../includes/settings_handler.php");
                 </div>
                 <p><?php echo $studies_message; ?></p>
                 <div class="flex justify-end mt-6">
-                    <button type="submit" name="update_studies" id="save_studies" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                    <button type="submit" name="update_studies" id="save_studies" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
                 </div>
             </form>
 
@@ -248,7 +248,7 @@ include("../includes/settings_handler.php");
             </div>
             <p id=""><?php echo $profesori_message;?></p>
             <div class="flex justify-end mt-6">
-                <button type="button" id="save_profesorii" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                <button type="button" id="save_profesorii" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizează</button>
             </div>
         </form>
     </section>
