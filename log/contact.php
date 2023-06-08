@@ -5,7 +5,6 @@ require("../config/config.php");
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use Mailgun\Mailgun;
 
 require '../vendor/autoload.php';
 
@@ -62,12 +61,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
     }
-
-    
     // exit; // prevent form from displaying again
 }
-
 ?>
+
 <html>
 <head>
 	<title>Bun venit!</title>
