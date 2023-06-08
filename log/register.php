@@ -138,10 +138,8 @@ require("../includes/register_handler.php");
 							<br>
                     </div>
 
-                 <div>   
-                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Verificare recaptcha</label>        
-                <div class="g-recaptcha" data-sitekey="6Lc4GXomAAAAAM1xAASeLuiXHdIlgJpBvSWBVkeW"></div>
-                        </div>
+                            
+                <!-- <div class="g-recaptcha" data-sitekey="6Lc4GXomAAAAAM1xAASeLuiXHdIlgJpBvSWBVkeW"></div> -->
 
                  <div>
 				   <button type="submit" name="register_button" value="Register" 
