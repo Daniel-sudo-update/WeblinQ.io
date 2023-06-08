@@ -37,7 +37,7 @@ $mail->Username = getenv('MAILGUN_SMTP_LOGIN'); // SMTP Login from Mailgun
 $mail->Password = getenv('MAILGUN_SMTP_PASSWORD'); // SMTP password from Mailgun
 $mail->SMTPSecure = 'tls';
 $mail->Port = getenv('MAILGUN_SMTP_PORT'); // SMTP port from Mailgun
-$mail->SMTPDebug = 3;  //for debugging
+// $mail->SMTPDebug = 3;  //for debugging
 
 // Set who the message is to be sent from
 $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
