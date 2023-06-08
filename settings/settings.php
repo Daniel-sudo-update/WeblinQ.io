@@ -42,7 +42,7 @@ include("../includes/settings_handler.php");
                     }
                 }
             } else {
-                header("Location: login.php"); // Redirecționare către pagina de login dacă utilizatorul nu este autentificat
+                header("Location: ../index.php"); // Redirecționare către pagina de login dacă utilizatorul nu este autentificat
             }
             ?>
             <form method="POST" enctype="multipart/form-data">
