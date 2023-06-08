@@ -3,8 +3,7 @@ require("../config/config.php");
 
 ?>
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use Mailgun\Mailgun;
 
 require '../vendor/autoload.php';
 
@@ -29,41 +28,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         die("A avut loc o eroarea la incarcare.");
     }
 
-    // Create a new PHPMailer instance
-    $mail = new PHPMailer;
-    $mail->isSMTP();
-    $mail->Host = 'smtp.mailgun.org';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'postmaster@sandbox334b587771084448b5262bfe125f2fa1.mailgun.org';
-    $mail->Password = '4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca'; // actualizează cheia de acces aici
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
-    // $mail->SMTPDebug = 3;  //pentru debugging
-    // Set who the message is to be sent from
-    $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
-    // Set an alternative reply-to address
-    $mail->addReplyTo('confirm.informatii@gmail.com', 'Registration Form');
-    // Set who the message is to be sent to
-    $mail->addAddress('confirm.informatii@gmail.com', 'Contact Info');
+    // Instantiate the Mailgun SDK with your API key
+    $mgClient = Mailgun::create('4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca'); // actualizează cheia de acces aici
 
-    // Set the subject line
-    $mail->Subject = 'New Registration';
-
-    // Set the body
-    $mail->Body = "First Name: $firstName\nEmail: $email";
-
-    // Attach the uploaded file
-    $mail->addAttachment($target_file);
+    // Set the message parameters
+    $params = array(
+        'from'    => 'Registration Form <confirm.informatii@gmail.com>',
+        'to'      => 'Contact Info <confirm.informatii@gmail.com>',
+        'subject' => 'New Registration',
+        'text'    => "First Name: $firstName\nEmail: $email",
+        'attachment' => array($target_file)
+    );
 
     // Send the message
-    if (!$mail->send()) {
-        echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
-    } else {
+    try {
+        $result = $mgClient->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', $params); // actualizează domeniul aici
         echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
+    } catch (Exception $e) {
+        echo 'Eroare la Mailer: ' . $e->getMessage();
     }
-    // exit; // prevent form from displaying again
 }
 ?>
+
 
 <html>
 <head>
