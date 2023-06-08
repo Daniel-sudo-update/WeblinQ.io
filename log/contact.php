@@ -3,14 +3,12 @@ require("../config/config.php");
 
 ?>
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 use Mailgun\Mailgun;
 
 require '../vendor/autoload.php';
 
 // Check if form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST["firstName"];
     $email = $_POST["email"];
 
@@ -18,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if file is an image
     $check = getimagesize($_FILES["studentCard"]["tmp_name"]);
-    if($check === false) {
+    if ($check === false) {
         die("Fișierul încărcat nu este o imagine!");
     }
 
@@ -30,30 +28,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         die("A avut loc o eroarea la incarcare.");
     }
 
+    // Initialize Mailgun API
+    $mg = Mailgun::create('4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca');
+
     // Create a new PHPMailer instance
-    $mg = Mailgun::create('4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca', 'https://api.mailgun.net/v3/sandbox334b587771084448b5262bfe125f2fa1.mailgun.org');
+    $messageParams = array(
+        'from' => 'Registration Form <confirm.informatii@gmail.com>',
+        'to' => 'Contact Info <confirm.informatii@gmail.com>',
+        'subject' => 'New Registration',
+        'text' => "First Name: $firstName\nEmail: $email",
+        'attachment' => [new \CurlFile($target_file)],
+    );
 
-// Make the call to the client
-$attachment = new CurlFile($target_file);
+    // Send the message
+    $result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', $messageParams);
 
-$result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', [
-  'from'    => 'Registration Form <confirm.informatii@gmail.com>',
-  'to'      => 'Contact Info <confirm.informatii@gmail.com>',
-  'subject' => 'New Registration',
-  'text'    => "First Name: $firstName\nEmail: $email",
-  'attachment' => [$attachment]
-]);
+    if ($result) {
+        echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
+    } else {
+        echo 'Eroare la Mailer: ' . $result->getMessage();
+    }
 
-if ($result) {
-  echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
-} else {
-  echo 'Eroare la Mailer: ' . $result->getMessage();
-}
-
-    
     exit; // prevent form from displaying again
 }
-
 ?>
 <html>
 <head>
