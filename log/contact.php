@@ -34,12 +34,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mg = Mailgun::create('4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca', 'https://api.mailgun.net/v3/sandbox334b587771084448b5262bfe125f2fa1.mailgun.org');
 
 // Make the call to the client
+$attachment = new CurlFile($target_file);
+
 $result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', [
   'from'    => 'Registration Form <confirm.informatii@gmail.com>',
   'to'      => 'Contact Info <confirm.informatii@gmail.com>',
   'subject' => 'New Registration',
   'text'    => "First Name: $firstName\nEmail: $email",
-  'attachment' => [$target_file]
+  'attachment' => [$attachment]
 ]);
 
 if ($result) {
