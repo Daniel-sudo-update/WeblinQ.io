@@ -62,7 +62,7 @@ if (!$mail->send()) {
     echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
 }
 
-    // exit; // prevent form from displaying again
+     exit; // prevent form from displaying again
 }
 ?>
 
