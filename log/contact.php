@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->Username = 'postmaster@sandbox334b587771084448b5262bfe125f2fa1.mailgun.org';
     $mail->Password = '4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca'; // actualizează cheia de acces aici
     $mail->SMTPSecure = 'tls';
-    $mail->Port = 421;
+    $mail->Port = 587;
     // $mail->SMTPDebug = 3;  //pentru debugging
     // Set who the message is to be sent from
     $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
