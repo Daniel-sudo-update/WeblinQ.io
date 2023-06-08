@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
 	$user = mysqli_fetch_array($user_details_query);
   }
   else {
-    header("Location: register.php");
+    header("Location: index.php");
   }
 
 ?>
