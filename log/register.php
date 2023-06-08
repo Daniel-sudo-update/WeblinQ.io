@@ -66,7 +66,7 @@ require("../includes/register_handler.php");
                     </div>
 
 					<div>
-                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirmară email</label>
                         <input class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" 
 						type="email" name="reg_email2" placeholder="Email" value="<?php 
 							if(isset($_SESSION['reg_email2'])) {
@@ -154,9 +154,9 @@ require("../includes/register_handler.php");
                     </button>
 		         </div>
 		<br>
-        <p class="mt-6 text-sm text-center text-gray-400">Aveti deja un cont? <a href="../index.php" class="text-blue-500 focus:outline-none focus:underline hover:underline">Conectare</a>.</p>
+        <p class="mt-6 text-sm text-center text-gray-400">Aveti deja un cont? <a href="../index.php" class="text-blue-500 focus:outline-none focus:underline hover:underline">Conectare</a>.</p><br>
               
-        <?php if(in_array("<span style='color: #14C800;'>Ești gata! Continuați și conectați-vă!</span><br>", $error_array)) echo "<span style='color: #14C800;'>Ești gata! Continuați și conectați-vă!</span><br>"; ?>
+        <?php if(in_array("<br><span style='color: #14C800;'>Ești gata! Continuați și conectați-vă!</span><br>", $error_array)) echo "<span style='color: #14C800;'>Ești gata! Continuați și conectați-vă!</span><br>"; ?>
 
 		
                 </form>
