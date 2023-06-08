@@ -64,29 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-// Instantiate the client
-$mg = Mailgun::create('4b0a57462c9572aebb42aeb9177de227-6d1c649a-cd9c77ca', 'postmaster@sandbox334b587771084448b5262bfe125f2fa1.mailgun.org');
-
-// Make the call to the client
-$result = $mg->messages()->send('sandbox334b587771084448b5262bfe125f2fa1.mailgun.org', [
-  'from'    => 'Registration Form <confirm.informatii@gmail.com>',
-  'to'      => 'Contact Info <confirm.informatii@gmail.com>',
-  'subject' => 'New Registration',
-  'text'    => "First Name: $firstName\nEmail: $email",
-  'attachment' => [$target_file]
-]);
-
-if ($result) {
-  echo '<b>Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email!</b>';
-} else {
-  echo 'Eroare la Mailer: ' . $result->getMessage();
-}
-
-
-
-
-
-
+    
     exit; // prevent form from displaying again
 }
 
