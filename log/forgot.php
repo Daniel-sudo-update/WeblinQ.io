@@ -71,7 +71,7 @@ else
       </div>
 
       <div class="relative z-0 w-full mb-4 group">
-            <input type="submit" id="login" name="pwdrst" value="Trimiteți linkul de resetare al parolei!" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" />
+            <input type="submit" id="login" name="pwdrst" value="Trimitere cerere pentru resetarea parolei!" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" />
        </div>
        
        <p class="error"><?php if(!empty($msg)){ echo $msg; } ?></p>
