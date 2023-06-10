@@ -45,7 +45,7 @@ $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
 $mail->addReplyTo('confirm.informatii@gmail.com', 'Registration Form');
 
 $mail->addAddress('confirm.informatii@gmail.com', 'Contact Info');
-$mail->Subject = 'Înscriere nouă';
+$mail->Subject = 'Inscriere noua';
 
 $mail->Body = "First Name: $firstName\nEmail: $email";
 
