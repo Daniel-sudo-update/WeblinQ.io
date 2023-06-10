@@ -8,61 +8,57 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
 
-// Check if form is submitted
+// Veriofică daca form-ul a fost incărcat
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST["firstName"];
     $email = $_POST["email"];
 
     $studentCard = $_FILES["studentCard"];
 
-    // Check if file is an image
+    // Verifică daca fișierul încarcat este poză
     $check = getimagesize($_FILES["studentCard"]["tmp_name"]);
     if($check === false) {
         die("Fișierul încărcat nu este o imagine!");
     }
 
-    // Store the uploaded file
+    // Stochează fișierele încărcate
     $target_dir = "../defaults/uploads/";
     $target_file = $target_dir . time() . "_" . basename($_FILES["studentCard"]["name"]);
 
     if (!move_uploaded_file($_FILES["studentCard"]["tmp_name"], $target_file)) {
         die("A avut loc o eroarea la incarcare.");
     }
-// Create a new PHPMailer instance
+// Creează o nouă instanță pentru PHPMailer 
 $mail = new PHPMailer;
 $mail->isSMTP();
-$mail->Host = getenv('MAILGUN_SMTP_SERVER'); // SMTP server from Mailgun
+$mail->Host = getenv('MAILGUN_SMTP_SERVER'); // SMTP server pentru Mailgun
 $mail->SMTPAuth = true;
-$mail->Username = getenv('MAILGUN_SMTP_LOGIN'); // SMTP Login from Mailgun
-$mail->Password = getenv('MAILGUN_SMTP_PASSWORD'); // SMTP password from Mailgun
+$mail->Username = getenv('MAILGUN_SMTP_LOGIN'); // Conectare SMTP pentru Mailgun
+$mail->Password = getenv('MAILGUN_SMTP_PASSWORD'); // Parolă SMTP pentru Mailgun
 $mail->SMTPSecure = 'tls';
-$mail->Port = getenv('MAILGUN_SMTP_PORT'); // SMTP port from Mailgun
-// $mail->SMTPDebug = 3;  //for debugging
+$mail->Port = getenv('MAILGUN_SMTP_PORT'); // Port SMTP pentru Mailgun
+// $mail->SMTPDebug = 3;  // pentru afișare erori
 
-// Set who the message is to be sent from
+
 $mail->setFrom('confirm.informatii@gmail.com', 'Registration Form');
-// Set an alternative reply-to address
+
 $mail->addReplyTo('confirm.informatii@gmail.com', 'Registration Form');
-// Set who the message is to be sent to
+
 $mail->addAddress('confirm.informatii@gmail.com', 'Contact Info');
+$mail->Subject = 'Înscriere nouă';
 
-// Set the subject line
-$mail->Subject = 'New Registration';
-
-// Set the body
 $mail->Body = "First Name: $firstName\nEmail: $email";
 
-// Attach the uploaded file
+// Atașează fișierul in email
 $mail->addAttachment($target_file);
 
-// Send the message
+// Trimite mesajele
 if (!$mail->send()) {
      echo 'Eroare la Mailer: ' . $mail->ErrorInfo;
 } else {
     echo '<b class="h-screen flex justify-center items-center">Mesaj trimis, așteaptă raspunsul cu link-ul de inregistrare pe email, este posibil sa îl gasiti in spam!</b>';
 }
 
-     //exit; // prevent form from displaying again
 }
 ?>
 

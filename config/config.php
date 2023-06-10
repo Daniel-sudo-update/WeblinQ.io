@@ -11,8 +11,6 @@ if(mysqli_connect_errno())
 	echo "Problemă de conectare: " . mysqli_connect_errno();
 }
 
-
-
 // partea de resetare a parolei
 $server = "eu-cdbr-west-03.cleardb.net";
 $username = "b483c78de1e73d";
@@ -22,7 +20,7 @@ $connection = mysqli_connect("$server","$username","$password");
 $select_db = mysqli_select_db($connection, $database);
 if(!$select_db)
 {
-	echo("connection terminated");
+	echo("Conecsiune finalizată");
 }
 
 ?>

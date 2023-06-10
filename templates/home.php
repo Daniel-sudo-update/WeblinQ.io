@@ -52,8 +52,6 @@ if(isset($_POST['post'])){
                            }
                         });
                      //   scroll start
-                   
-
                         $(window).scroll(function() {
                            var height = $('.posts_area').height(); //Div containing posts
                            var scroll_top = $(this).scrollTop();
@@ -76,12 +74,8 @@ if(isset($_POST['post'])){
                                           $('.posts_area').append(response);
                                     }
                                  });
-                                 
-
                            } //End if 
-
                            return false;
-
                         }); //End (window).scroll(function())
                         // scroll end    /
 
@@ -92,18 +86,9 @@ if(isset($_POST['post'])){
 
                </div>
 <!-- publish content end -->
-               
-               
-
-
-
       </div>
    </div>
 
-
-
-
-   
     </body>
 </html>
 
