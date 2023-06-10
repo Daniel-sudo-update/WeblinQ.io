@@ -14,7 +14,13 @@ if (isset($_POST['submit'])) {
     echo "<script>alert('Oops you are a robot 😡');</script>";
   }
 }
-$mail->addAttachment($target_file);
+
+
+if(isset($_REQUEST['pwdrst']))
+
+
+
+
 
 ?>
 

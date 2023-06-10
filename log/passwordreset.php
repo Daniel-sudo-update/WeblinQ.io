@@ -31,7 +31,7 @@ if(isset($_REQUEST['pwdrst']))
   }
 }
 
-if($_GET['secret'])
+if(isset($_GET['secret']))
 {
   $email = base64_decode($_GET['secret']);
   $check_details = mysqli_query($connection,"select email from users where email='$email'");
