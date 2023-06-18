@@ -1,37 +1,33 @@
 $(document).ready(function () {
 
-	$('#search_text_input').focus(function(){
-		if(window.matchMedia( "(min-width:800px)").matches){
-			$(this).animate({width: '250px'}, 500);
-		}
-	});
-	$('.button_holder').on('click',function(){
-		document.search_form.submit();
-	})
+    $('#search_text_input').focus(function() {
+        if(window.matchMedia( "(min-width:800px)").matches){
+            $(this).animate({width: '250px'}, 500);
+        }
+    });
 
-	// Button for profile post
-	$("#submit_profile_post").click(function (event) {
-        event.stopPropagation(); // Oprește propagarea evenimentului
+    $('.button_holder').on('click', function() {
+        document.search_form.submit();
+    });
+
+    // Button for profile post
+    $("#submit_profile_post").click(function (event) {
         event.preventDefault(); // Previne comportamentul implicit al evenimentului
     
         $.ajax({
-			type: "POST",
-			url: "../includes/ajax_submit_profile_post.php",
-			data: $("form.space-y-6").serialize(),
-			success: function(msg) {
-				$("#post_form").addClass("hide"); // Ascunde formularul adăugând clasa "hide"
-			},
-			error: function () {
-				alert("Failure");
-			},
-		}).done(function() {
-			window.location.reload(); // Reîmprospătează pagina
-		});
-		http_response_code(200);
-		
+            type: "POST",
+            url: "../includes/ajax_submit_profile_post.php",
+            data: $("#post_form form").serialize(),
+            success: function(msg) {
+                $("#post_form").hide(); // Ascunde formularul
+                window.location.reload(); // Reîmprospătează pagina
+            },
+            error: function () {
+                alert("Failure");
+            },
+        });
     });
 });
-
 
   function getUsers(value, user){
 	$.post("../includes/ajax_friend_search.php", {query:value, userLoggedIn:user}, function(data) {
