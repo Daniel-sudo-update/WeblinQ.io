@@ -13,17 +13,17 @@ $(document).ready(function () {
     // Button for profile post
     $("#submit_profile_post").click(function (event) {
         event.preventDefault(); // Previne comportamentul implicit al evenimentului
-    
+
         $.ajax({
             type: "POST",
-            url: "../includes/ajax_submit_profile_post.php",
+            url: "../includes/ajax_submit_profile_post.php", // foloseste o cale URL absoluta
             data: $("#post_form form").serialize(),
             success: function(msg) {
                 $("#post_form").hide(); // Ascunde formularul
                 window.location.reload(); // Reîmprospătează pagina
             },
-            error: function () {
-                alert("Failure");
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.error("A apărut o eroare: " + thrownError); // Afiseaza eroarea in consola
             },
         });
     });
