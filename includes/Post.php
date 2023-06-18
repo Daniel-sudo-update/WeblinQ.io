@@ -10,54 +10,57 @@ class Post{
 	}
 
 	public function submitPost($body, $user_to) {
-
 		$body = strip_tags($body); //removes html tags 
 		$body = mysqli_real_escape_string($this->con, $body);
-		$check_empty = preg_replace('/\s+/', '', $body); //Deltes all spaces 
-      
+		$check_empty = preg_replace('/\s+/', '', $body); //Deletes all spaces 
+	
 		if($check_empty != "") {
-
 			// upload videos from youtube
-			
 			$body_array = preg_split("/\s+/", $body);
-
+	
 			foreach($body_array as $key => $value) {
-
 				if(strpos($value, "www.youtube.com/watch?v=") !== false) {
-
 					$link = preg_split("!&!", $value);
 					$value = preg_replace("!watch\?v=!", "embed/", $link[0]);
 					$value = "<br><iframe width=\'420\' height=\'315\' src=\'" . $value ."\'></iframe><br>";
 					$body_array[$key] = $value;
-
 				}
-
 			}
 			$body = implode(" ", $body_array);
-			// end upload videos
-	//Current date and time
+	
+			//Current date and time
 			$date_added = date("Y-m-d H:i:s");
 			//Get username
 			$added_by = $this->user_obj->getUsername();
-
+	
 			//If user is on own profile, user_to is 'none'
 			if($user_to == $added_by) {
-				$user_to = "none";
-			}         
-			//insert post 
-			$query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0')");
-			$returned_id = mysqli_insert_id($this->con);
+				$user_to = NULL;
+			}
+	
+			//Insert post 
+			$stmt = $this->con->prepare("INSERT INTO posts(body, added_by, user_to, date_added, user_closed, deleted, likes) VALUES (?, ?, ?, ?, 'no', 'no', '0')");
+			$stmt->bind_param("ssss", $body, $added_by, $user_to, $date_added);
+			$stmt->execute();
+			$returned_id = $stmt->insert_id;
+			$stmt->close();
+	
 			//Insert notification
-			if($user_to != 'none') {
+			if($user_to != NULL) {
 				$notification = new Notification($this->con, $added_by);
 				$notification->insertNotification($returned_id, $user_to, "like");
 			}
+	
 			//Update post count for user 
 			$num_posts = $this->user_obj->getNumPosts();
 			$num_posts++;
-			$update_query = mysqli_query($this->con, "UPDATE users SET num_posts='$num_posts' WHERE username='$added_by'");
+			$stmt = $this->con->prepare("UPDATE users SET num_posts = ? WHERE username = ?");
+			$stmt->bind_param("is", $num_posts, $added_by);
+			$stmt->execute();
+			$stmt->close();
 		}
 	}
+	
 	
 
 	public function loadPostsFriends($data, $limit) {
