@@ -54,6 +54,8 @@ if(isset($_POST['post_body'])) {
     $post = new Post($con, $_POST['user_from']);
     $post->submitPost($post_body, $_POST['user_to']);
 }
+error_reporting(E_ALL); ini_set('display_errors', 1);
+
 
 
 ?>

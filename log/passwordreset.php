@@ -46,7 +46,7 @@ if(isset($_GET['secret']))
             <form id="validate_form" method="post" class="bg-gray-900 rounded px-8 pt-6 pb-8 mb-4">  
                 <input type="hidden" name="email" value="<?php echo $email; ?>"/>
                 <div class="form-group">
-                    <label for="pwd" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Parola</label>
+                    <label for="pwd" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Parolă nouă</label>
                     <input type="password" name="pwd" id="pwd" placeholder="Parola" required 
                     data-parsley-type="pwd" data-parsley-trigg
                     er="keyup" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"/>
@@ -57,7 +57,7 @@ if(isset($_GET['secret']))
                     er="keyup" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"/>
                 </div><br>
                     <div class="form-group">
-                    <input type="submit" id="login" name="pwdrst" value="Resetare parola" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" />
+                    <input type="submit" id="login" name="pwdrst" value="Salvare parolă" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" />
                 </div>
                 
                 <p class="error"><?php if(!empty($msg)){ echo $msg; } ?></p>

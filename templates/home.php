@@ -24,8 +24,8 @@ if(isset($_POST['post'])){
 <body >
 <div class="p-4 sm:ml-64 ">
   <div class="mt-14">
-               <!-- END PUBLISH FORM -->
-<!-- publish content -->              
+               <!-- Final publicare FORM -->
+<!-- content publicat -->              
                <div class="d-flex justify-content-center scrollbar-container" style="color:white">
                <div class="posts_area " ></div>
                
@@ -85,7 +85,7 @@ if(isset($_POST['post'])){
 
 
                </div>
-<!-- publish content end -->
+<!-- final de content publicat -->
       </div>
    </div>
 

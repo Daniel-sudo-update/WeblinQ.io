@@ -98,16 +98,16 @@ if(isset($_POST['respond_request'])) {
                   if($userLoggedIn != $username) {
 
                      if($logged_in_user_obj->isFriend($username)) {
-                        echo '<input type="submit" name="remove_friend" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Remove Friend"><br>';
+                        echo '<input type="submit" name="remove_friend" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Sterge prieten"><br>';
                      }
                      else if ($logged_in_user_obj->didReceiveRequest($username)) {
-                        echo '<input type="submit" name="respond_request" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Respond to Request"><br>';
+                        echo '<input type="submit" name="respond_request" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Rapunde la cerere"><br>';
                      }
                      else if ($logged_in_user_obj->didSendRequest($username)) {
-                        echo '<input type="submit" name="" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Request Sent"><br>';
+                        echo '<input type="submit" name="" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Cerere trimisa"><br>';
                      }
                      else 
-                        echo '<input type="submit" name="add_friend" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Add Friend"><br>';
+                        echo '<input type="submit" name="add_friend" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" value="Adauga prieten"><br>';
 
                   }
 
