@@ -15,15 +15,20 @@ $(document).ready(function () {
         event.preventDefault(); // Previne comportamentul implicit al evenimentului
     
         $.ajax({
-            type: "POST",
-            url: "../includes/ajax_submit_profile_post.php",
-            data: $("form.space-y-6").serialize(),
-            success: function(msg) {
-                $("#post_form").addClass("hidden"); // Ascunde modalul adăugând clasa "hidden"
-                window.location.reload(); // Reîmprospătează pagina
-            },
-           
-        });
+			type: "POST",
+			url: "../includes/ajax_submit_profile_post.php",
+			data: $("form.space-y-6").serialize(),
+			success: function(msg) {
+				$("#post_form").addClass("hide"); // Ascunde formularul adăugând clasa "hide"
+			},
+			error: function () {
+				alert("Failure");
+			},
+		}).done(function() {
+			window.location.reload(); // Reîmprospătează pagina
+		});
+		http_response_code(200);
+		
     });
 });
 

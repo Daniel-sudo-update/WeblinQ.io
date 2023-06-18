@@ -358,7 +358,7 @@ if (isset($_SESSION['username'])) {
          </button>
          <div class="px-6 py-6 lg:px-8 modal-body">
          <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Poteaza ceva!</h3>
-         <form class="space-y-6" action="home.php" method="POST">
+         <form class="space-y-6" action="" method="POST">
             <textarea name="post_body" id="editor" rows="8" class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Noutăți..."></textarea>
             <input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
             <input type="hidden" name="user_to" value="<?php echo $username; ?>">
