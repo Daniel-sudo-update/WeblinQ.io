@@ -11,26 +11,22 @@ $(document).ready(function () {
 
 	// Button for profile post
 	$("#submit_profile_post").click(function (event) {
-		event.stopPropagation(); // Oprește propagarea evenimentului
-		event.preventDefault(); // Previne comportamentul implicit al evenimentului
-	
-		$.ajax({
-			type: "POST",
-			url: "../includes/ajax_submit_profile_post.php",
-			data: $("form.space-y-6").serialize(),
-			success: function(msg) {
-				$("#post_form").addClass("hide"); // Ascunde formularul adăugând clasa "hide"
-				window.location.reload(); // Reîmprospătează pagina
-			},
-			error: function () {
-				alert("Failure");
-			},
-		});
-	});
-	
-	
-	// Ascunde formularul de postare după ce este trimis
-	$("#post_form").removeClass("show");
+        event.stopPropagation(); // Oprește propagarea evenimentului
+        event.preventDefault(); // Previne comportamentul implicit al evenimentului
+    
+        $.ajax({
+            type: "POST",
+            url: "../includes/ajax_submit_profile_post.php",
+            data: $("form.space-y-6").serialize(),
+            success: function(msg) {
+                $("#post_form").addClass("hidden"); // Ascunde modalul adăugând clasa "hidden"
+                window.location.reload(); // Reîmprospătează pagina
+            },
+            error: function () {
+                alert("Failure");
+            },
+        });
+    });
 });
 
 
