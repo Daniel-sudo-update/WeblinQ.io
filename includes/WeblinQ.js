@@ -22,9 +22,9 @@ $(document).ready(function () {
                 $("#post_form").addClass("hidden"); // Ascunde modalul adăugând clasa "hidden"
                 window.location.reload(); // Reîmprospătează pagina
             },
-            error: function () {
-                alert("Failure");
-            },
+            error: function(jqXHR, textStatus, errorThrown) {
+				console.error(jqXHR, textStatus, errorThrown);
+			},
         });
     });
 });
