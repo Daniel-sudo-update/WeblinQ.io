@@ -23,7 +23,11 @@ $(document).ready(function () {
 		},
 		error: function () {
 		  alert("Failure");
+		  
 		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert("Failure: " + textStatus + ". Error: " + errorThrown);
+		  },
 	  });
 	});
 	
