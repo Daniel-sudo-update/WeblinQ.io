@@ -22,7 +22,7 @@ $(document).ready(function () {
             data: form_data,
             success: function(response) {
                 $("#post_form").hide(); // Ascunde modalul
-                location.reload(); // Reîmprospătează pagina
+                location("../templates/home.php"); // Reîmprospătează pagina
             },
             error: function(request, status, error) {
                 alert("Eroare: " + request.responseText);
