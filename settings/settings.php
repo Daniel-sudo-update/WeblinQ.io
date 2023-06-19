@@ -22,7 +22,7 @@ include("../includes/settings_handler.php");
             if (isset($_SESSION['username'])) {
                 if (isset($_POST['submit'])) {
                     $image = $_FILES['profile_pic']['name'];
-                    $target = "../defaults/uploads" . basename($image);
+                    $target = "../defaults/uploads/" . basename($image);
 
                     // Încărcarea imaginii în folderul "uploads"
                     if (move_uploaded_file($_FILES['profile_pic']['tmp_name'], $target)) {
