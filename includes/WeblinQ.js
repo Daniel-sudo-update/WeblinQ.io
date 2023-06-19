@@ -1,35 +1,38 @@
 $(document).ready(function () {
 
-	$('#search_text_input').focus(function(){
-		if(window.matchMedia( "(min-width:800px)").matches){
-			$(this).animate({width: '250px'}, 500);
-		}
-	});
-	$('.button_holder').on('click',function(){
-		document.search_form.submit();
-	})
-
-	// Button for profile post
-	$("#submit_profile_post").click(function (event) {
-        event.stopPropagation(); // Oprește propagarea evenimentului
-        event.preventDefault(); // Previne comportamentul implicit al evenimentului
+    $('#search_text_input').focus(function(){
+        if(window.matchMedia( "(min-width:800px)").matches){
+            $(this).animate({width: '250px'}, 500);
+        }
+    });
     
+    $('.button_holder').on('click',function(){
+        document.search_form.submit();
+    })
+
+    // Button for profile post
+    $("#submit_profile_post").click(function (event) {
+        event.preventDefault(); // Previne comportamentul implicit al evenimentului
+
+        var form_data = $("form.space-y-6").serialize();
+        
         $.ajax({
-			type: "POST",
-			url: "./ajax_submit_profile_post.php",
-			data: $("form.space-y-6").serialize(),
-			success: function(msg) {
-				$("#post_form").addClass("hidden"); // Ascunde modalul adăugând clasa "hidden"
-			},
-			error: function () {
-				alert("Failure");
-			},
-		}).always(function() {
-			window.location.reload(); // Reîmprospătează pagina
-		});
-		
+            type: "POST",
+            url: "./ajax_submit_profile_post.php",
+            data: form_data,
+            success: function(response) {
+                $("#post_form").hide(); // Ascunde modalul
+                location.reload(); // Reîmprospătează pagina
+            },
+            error: function(request, status, error) {
+                alert("Eroare: " + request.responseText);
+            },
+        });
+
+        return false;
     });
 });
+
 
 
   function getUsers(value, user){
