@@ -300,7 +300,13 @@ if (isset($_SESSION['username'])) {
         
           <p  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"><?php echo "Aprecieri: " . $user['num_likes']; ?></p>
         <!-- prieteni -->
-          <!-- <p  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"><?php echo "Prieteni: " . $user['friend_array']; ?><br></p> -->
+          <div class="flex flex-col p-2 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+              <span class="items-center text-base font-normal text-gray-900">Prieteni:</span>
+              <div class="items-center text-base font-normal text-gray-900">
+                  <?php echo implode("<br>", $user['friend_array']); ?>
+              </div>
+          </div>
+
           
         </li>
 
