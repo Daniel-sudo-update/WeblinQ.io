@@ -32,7 +32,10 @@ if (isset($_POST['post_body'])) {
             exit();
         }
     }
-
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    
     $post = new Post($con, $_POST['user_from']);
     $post->submitPost($post_body, $_POST['user_to']);
 }
