@@ -10,7 +10,7 @@ $(document).ready(function () {
     })
 
     // Button for profile post
-    $("#submit_profile_post").click(function (event) {
+    $("button[data-modal-target='post_form']").click(function (event) {
         event.preventDefault(); // Previne comportamentul implicit al evenimentului
 
         var form_data = $("form.space-y-6").serialize();
