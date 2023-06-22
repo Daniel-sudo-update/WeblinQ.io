@@ -17,15 +17,15 @@ $(document).ready(function () {
         
         $.ajax({
             type: "POST",
-            url: "./ajax_submit_profile_post.php",
+            url: "../includes/ajax_submit_profile_post.php",
             data: form_data,
             success: function(response) {
                 $("#post_form").hide(); // Ascunde modalul
                 location.reload(); // Reîmprospătează pagina
             },
-            error: function(request, status, error) {
-                alert("Eroare: " + request.responseText);
-            },
+            // error: function(request, status, error) {
+            //     alert("Eroare: " + request.responseText);
+            // },
         });
 
         return false;
