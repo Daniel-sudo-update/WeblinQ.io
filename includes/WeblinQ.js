@@ -10,28 +10,28 @@ $(document).ready(function () {
     })
 
     // Button for profile post
-	$("form.space-y-6").submit(function (event) {
-		event.preventDefault(); // Previne comportamentul implicit al evenimentului
-	
-		var form_data = $(this).serialize();
-		
-		$.ajax({
-			type: "POST",
-			url: "../includes/ajax_submit_profile_post.php",
-			data: form_data,
-			success: function(response) {
-				$("#post_form").hide(); // Ascunde modalul
-				location.reload(); // Reîmprospătează pagina
-			},
-			error: function(request, status, error) {
-				alert("Eroare: " + request.responseText);
-			},
-		});
-	
-		return false;
-	});
-	
+    $("form.space-y-6").submit(function (event) {
+        event.preventDefault(); // Previne comportamentul implicit al evenimentului
+
+        var form_data = $(this).serialize();
+        
+        $.ajax({
+            type: "POST",
+            url: "../includes/ajax_submit_profile_post.php",
+            data: form_data,
+            success: function(response) {
+                $("#post_form").hide(); // Ascunde modalul
+                location.reload(true); // Reîmprospătează pagina cu un hard refresh
+            },
+            error: function(request, status, error) {
+                alert("Eroare: " + request.responseText);
+            },
+        });
+
+        return false;
+    });
 });
+
 
 
 
