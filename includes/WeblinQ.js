@@ -27,8 +27,8 @@ $(document).ready(function () {
             error: function(request, status, error) {
 				console.error("A apărut o eroare în timpul cererii AJAX: ", request.responseText);
 
-                console.log("Error response:", request.responseText); // Log the error response for debugging
-                alert("Eroare: " + request.responseText);
+                // console.log("Error response:", request.responseText); // Log the error response for debugging
+                // alert("Eroare: " + request.responseText);
             },
         });
 
