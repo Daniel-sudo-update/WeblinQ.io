@@ -7,7 +7,7 @@ include("../includes/Notification.php");
 if (isset($_POST['post_body'])) {
     $post_body = $_POST['post_body'];
 
-    $apiKey = getenv('39e9601b9e5e435c91af492bfba7a272'); // cheia API a resursei Content Moderator
+    $apiKey = getenv('AZURE_API_KEY'); // cheia API a resursei Content Moderator
     $endpoint = "https://weblinqmoderator.cognitiveservices.azure.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=True"; // punctul de acces al resursei Content Moderator
 
     $ch = curl_init($endpoint);
