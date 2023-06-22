@@ -17,7 +17,7 @@ $(document).ready(function () {
         
         $.ajax({
             type: "POST",
-            url: "../includes/ajax_submit_profile_post.php",
+            url: "./ajax_submit_profile_post.php",
             data: form_data,
             success: function(response) {
                 $("#post_form").hide(); // Ascunde modalul
