@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     // Button for profile post
     $("form.space-y-6").submit(function (event) {
-        event.preventDefault(); // Previne comportamentul implicit al evenimentului
+        event.preventDefault();
 
         var form_data = $(this).serialize();
         
@@ -20,10 +20,12 @@ $(document).ready(function () {
             url: "../includes/ajax_submit_profile_post.php",
             data: form_data,
             success: function(response) {
+                console.log("Success response:", response); // Log the response for debugging
                 $("#post_form").hide(); // Ascunde modalul
-                location.reload(true); // Reîmprospătează pagina cu un hard refresh
+                location.reload(true); // Reîmprospătează pagina
             },
             error: function(request, status, error) {
+                console.log("Error response:", request.responseText); // Log the error response for debugging
                 alert("Eroare: " + request.responseText);
             },
         });
